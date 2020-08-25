@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>List Labels</title>
+    </head>
+    <body>
+                <li><%= repoPath%></li>
+        <ul>
+            <% Object.keys(manLabelsDict).forEach(function(manFileName){ %>
+
+                <li><%= manFileName%></li>
+            <ul>
+                    <% manLabelsDict[manFileName].forEach(function(oneLabel){ %>
+                        <li><%= oneLabel%></li>
+                    <% }); %>
+
+                </ul>
+            <% }); %>
+        </ul>
+
+    </body>
+</html>

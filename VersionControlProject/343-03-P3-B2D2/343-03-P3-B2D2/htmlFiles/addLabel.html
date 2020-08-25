@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body, html {
+            height: 100%;
+            margin: 0;
+            }
+
+            .bg {
+            /* The image used */
+            background-image: url("https://www.lovablelabels.ca/media/catalog/product/cache/3/image/9df78eab33525d08d6e5fb8d27136e95/s/t/sticker-listin-page-unicorn1.jpg");
+
+            /* Full height */
+            height: 100%;
+
+            /* Center and scale the image nicely */
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-size: cover;
+            }
+            /* centers an image */
+            .center{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: auto;
+                margin-bottom: auto;
+                width: 50%;
+            }
+        </style>
+    <title>Add Label(s)</title>
+    </head>
+    <div class="bg">
+
+        <body>
+            <h1> addLabel </h1>
+            <form>
+                Repo Path:<br>
+                <input type="text" name="sourcePath" required>
+                <br>
+                Manifest File Name:<br>
+                <input type="text" name="manName" required>
+                <br>
+                Label 1 (required):<br>
+                <input type="text" name="label1" required>
+                <br>
+                Label 2:<br>
+                <input type="text" name="label2">
+                <br>
+                Label 3:<br>
+                <input type="text" name="label3">
+                <br>
+                Label 4:<br>
+                <input type="text" name="label4">
+                <br><br>
+                <input type="submit" value="Add Label(s)">
+                <br>
+            </form>
+
+        </body>
+    </div>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body, html {
+            height: 100%;
+            margin: 0;
+            }
+
+            .bg {
+            /* The image used */
+            background-image: url("https://starsolutions.vn/wp-content/uploads/2018/06/check-out-2.jpg");
+            /*
+            background-image: url('/mainBackground.jpg');
+            */
+
+            /* Full height */
+            height: 100%;
+
+            /* Center and scale the image nicely */
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-size: cover;
+            }
+            /* centers an image */
+            .center{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: auto;
+                margin-bottom: auto;
+                width: 50%;
+            }
+        </style>
+        <title>Check Out</title>
+    </head>
+    <div class="bg">
+
+        <body>
+            <h1> Check Out </h1>
+            <form>
+                sourceRepoPath:<br>
+                <input type="text" name="sourceRepoPath" required>
+                <br>
+                sourceManLabel:<br>
+                <input type="text" name="sourceManFile" required>
+                <br>
+                Target Path:<br>
+                <input type="text" name="targetPath" required>
+                <br><br>
+                <input type="submit" value="check out">
+            </form>
+
+        </body>
+    </div>
+</html>

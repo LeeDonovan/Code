@@ -1,0 +1,7 @@
+Upper Division Courses still needed
+- CECS 327
+- CECS 329
+- CECS 342
+- ENGR 361/390
+- CECS 491A (Senior Project Pt 1)
+- CECS 491B (Senior Project Pt 2)

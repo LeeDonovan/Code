@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "string": "cpp",
+        "iostream": "cpp"
+    },
+    "python.pythonPath": "Test\\env\\Scripts\\python.exe",
+    "workbench.editorAssociations": [
+    
+    ]
+}
