@@ -2,9 +2,15 @@ import java.util.*;
 
 public class StudentSolver{
 
-    //public static HashSet<Integer> solve(HashMap<Integer, Integer> aliens){
-
-    //}
+    public static HashSet<Integer> solve(HashMap<Integer, Integer> aliens){
+        int counter = 0;
+        for(int i = 0; i < aliens.size(); i++){
+            counter+=aliens.get(i);
+        }
+        HashSet<Integer> all = new HashSet<Integer>();
+        all.add(counter);
+        return all;
+    }
 
 
     public static void main(String args[]){
@@ -17,7 +23,9 @@ public class StudentSolver{
             aliens.put(counter, counter); //adds in number of aliens into hashmap
             counter--;
         }
-        System.out.println(aliens);
+        HashSet<Integer> total = new HashSet<Integer>();
+        total = solve(aliens);
+        System.out.println(total);
 
         
     }
