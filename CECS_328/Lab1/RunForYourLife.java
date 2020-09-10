@@ -17,7 +17,6 @@ public class RunForYourLife{
     }
 
     public static ArrayList<Integer> randomList(int n){
-        Random rand = new Random();
         ArrayList<Integer> randNumbers = new ArrayList<Integer>();
         int counter = 0;
         int min = -100;
