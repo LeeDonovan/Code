@@ -22,3 +22,14 @@ public class test {
 
 
     }
+
+
+    if(x.length == 0){
+        return 0;
+    }
+    else if(left == right){
+        if(x[left] > 0) {
+            return x[left];
+        }
+        return 0;
+    }
