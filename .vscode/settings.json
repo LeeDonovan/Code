@@ -3,7 +3,7 @@
         "string": "cpp",
         "iostream": "cpp"
     },
-    "python.pythonPath": "Test\\env\\Scripts\\python.exe",
+    "python.pythonPath": "E:\\Python\\python.exe",
     "workbench.editorAssociations": [
     
     ]

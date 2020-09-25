@@ -109,33 +109,33 @@ public class RunForYourLife{
     }
 /////////////////////////////Test Function/////////////////////////////////////////////////////////////////////////
     public static void testing(int[] x){
-        long startTime = System.nanoTime();
+        long startTime = System.currentTimeMillis();
         System.out.println("Freddy's Algorithm: " + Fred(x));
-        long endTime = System.nanoTime();
+        long endTime = System.currentTimeMillis();
         long totalTime = endTime - startTime;
-        System.out.println("Freddy's Time: "+ totalTime + " ns\n");
+        System.out.println("Freddy's Time: "+ totalTime + " ms\n");
 
-        startTime = System.nanoTime();
+        startTime = System.currentTimeMillis();
         System.out.println("Sophie's Algorithm: " + Sophie(x));
-        endTime = System.nanoTime();
+        endTime = System.currentTimeMillis();
         totalTime = endTime - startTime;
-        System.out.println("Sophie's Time: "+ totalTime + " ns\n");
+        System.out.println("Sophie's Time: "+ totalTime + " ms\n");
         
-        startTime = System.nanoTime();
+        startTime = System.currentTimeMillis();
         System.out.println("Johnny's Algorithm: " + Johnny(x, 0, x.length - 1));
-        endTime = System.nanoTime();
+        endTime = System.currentTimeMillis();
         totalTime = endTime - startTime;
-        System.out.println("Johnny's Time: "+ totalTime + " ns\n");
+        System.out.println("Johnny's Time: "+ totalTime + " ms\n");
 
         
-        startTime = System.nanoTime();
+        startTime = System.currentTimeMillis();
         System.out.println("Sally's Algorithm: " + Sally(x));
-        endTime = System.nanoTime();
+        endTime = System.currentTimeMillis();
         totalTime = endTime - startTime;
-        System.out.println("Sally's Time: "+ totalTime + " ns\n");
+        System.out.println("Sally's Time: "+ totalTime + " ms\n");
 
     }
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////Main/////////////////////////////////////////////////////////////////////////////////
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
         boolean loop = true;
@@ -161,11 +161,12 @@ public class RunForYourLife{
                 int s = seed();
                 int n = value();
                 int[] randomNumbers =  randomList(n,s);
-                long startTime = System.nanoTime();
-                System.out.println(Fred(randomNumbers));
-                long endTime = System.nanoTime();
-                long totalTime = endTime - startTime;
-                System.out.println("Freddy's Time: "+ totalTime + " ns\n");
+                double startTime = System.currentTimeMillis();
+                int FreddyAlgo = Fred(randomNumbers);
+                double endTime = System.currentTimeMillis();
+                double totalTime = endTime - startTime;
+                System.out.println("Freddy's Outcome: " + FreddyAlgo);
+                System.out.println("Freddy's Time: "+ totalTime + " ms\n");
 
             }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -174,11 +175,12 @@ public class RunForYourLife{
                 int s = seed();
                 int n = value();
                 int randomNumbers[] =  randomList(n,s);
-                long startTime = System.nanoTime();
-                System.out.println(Sophie(randomNumbers));
-                long endTime = System.nanoTime();
-                long totalTime = endTime - startTime;
-                System.out.println("Sophie's Time: "+ totalTime + " ns\n");
+                double startTime = System.currentTimeMillis();
+                int SophieAlgo = Sophie(randomNumbers);
+                double endTime = System.currentTimeMillis();
+                double totalTime = endTime - startTime;
+                System.out.println("Sopie's Outcome: " + SophieAlgo);
+                System.out.println("Sophie's Time: "+ totalTime + " ms\n");
             }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             if(userInput == 4){
@@ -186,10 +188,11 @@ public class RunForYourLife{
                 int s = seed();
                 int n = value();
                 int randomNumbers[] =  randomList(n,s);
-                long startTime = System.currentTimeMillis();
-                System.out.println(Johnny(randomNumbers,0,randomNumbers.length - 1));
-                long endTime = System.currentTimeMillis();
-                long totalTime = endTime - startTime;
+                double startTime = System.currentTimeMillis();
+                int JohnnyAlgo = Johnny(randomNumbers,0,randomNumbers.length-1);
+                double endTime = System.currentTimeMillis();
+                double totalTime = endTime - startTime;
+                System.out.println("Johnny's Outcome: " + JohnnyAlgo);
                 System.out.println("Johnny's Time: "+ totalTime + " ms\n");
             }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -198,12 +201,14 @@ public class RunForYourLife{
                 int s = seed();
                 int n = value();
                 int[] randomNumbers =  randomList(n,s);
-                long startTime = System.currentTimeMillis();
-                System.out.println(Sally(randomNumbers));
-                long endTime = System.currentTimeMillis();
-                long totalTime = endTime - startTime;
+                double startTime = System.currentTimeMillis();
+                int SallyAlgo = Sally(randomNumbers);
+                double endTime = System.currentTimeMillis();
+                double totalTime = endTime - startTime;
+                System.out.println("Sally's Outcome: " + SallyAlgo);
                 System.out.println("Sally's Time: "+ totalTime + " ms\n");
             }
+///////////////////////Testing Algorithms////////////////////////////////////////////////////////////////////////
             if(userInput == 6){
                 boolean testing = true;
                 while (testing){
