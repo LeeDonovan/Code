@@ -16,16 +16,20 @@ void SimpleThread(int which){
 		}
 	
 	#ifdef PTHREAD_SYNC
+		//locks other threads from entering at the same time as the first one is being implemented
 		pthread_mutex_lock(&lock);
 	#endif
 		val = sharedVariable;
 		printf("***thread%d sees value %d\n", which,val);
 		sharedVariable= val + 1;
 	#ifdef PTHREAD_SYNC
+		//unlocks to let the next thread go in
 		pthread_mutex_unlock(&lock);
 	#endif
 	}
 	#ifdef PTHREAD_SYNC
+		//syncs other threads together
+		//waits till all threads are here and releases them
 		pthread_barrier_wait(&barrier);
 	#endif
 	val = sharedVariable;
@@ -33,7 +37,7 @@ void SimpleThread(int which){
 }
 
 void *ThreadID(void * arg){
-	int thread_id =(long) arg;
+	int thread_id =(long) arg;//type casted 
 	SimpleThread(thread_id);
 }
 
@@ -52,7 +56,7 @@ int main(int argc, char *argv[]){
 			return 0;
 		}
 		
-		if(pthread_barrier_init(&barrier, NULL, thread_count)){
+		if(pthread_barrier_init(&barrier, NULL, thread_count)){//initialized to check if any thread is blocked
 			printf("Barrier not created...");
 			return -1;
 		}

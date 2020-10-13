@@ -4,7 +4,7 @@ September 27, 2020
 
 Students:ID
 - Donovan Lee : 016741645
-- Minh Kyaw   : 018182136
+- Min Kyaw   : 018182136
 
 How To Run Code:
 
