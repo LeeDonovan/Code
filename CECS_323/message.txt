@@ -1,0 +1,54 @@
+create table writinggroups(
+groupname varchar(20) not null,
+headwriter varchar(20) not null,
+yearformed varchar(4) not null,
+subject varchar(20) not null
+);
+
+create table publishers(
+publishername varchar(20) not null,
+publisheraddress varchar(50) not null,
+publisherphone varchar (12) not null,
+publisheremail varchar(30) not null
+);
+
+alter table writinggroups add constraint writinggroups_pk primary key (groupname);
+
+alter table publishers add constraint publishers_pk primary key (publishername);
+
+create table books(
+groupname varchar(20) not null,
+booktitle varchar(40) not null,
+publishername varchar(20) not null,
+yearpublished varchar(4) not null,
+numberpages varchar(100) not null
+);
+[9:21 PM]
+alter table books add constraint books_pk primary key (groupname, booktitle);
+
+alter table books add constraint books_writinggroups_fk foreign key (groupname) references writinggroups(groupname);
+
+alter table books add constraint books_publishers_fk foreign key (publishername) references publishers(publishername);
+
+insert into writinggroups(groupname,headwriter,yearformed,subject)
+values('Writers of Kern','Janet Foster','1941','Horror'),
+('Coffee Writers', 'Tony Parker','1981','Drama'),
+('CCW','Gary Langford','2001','Thriller'),
+('The Force','Ewan Mcgregor','1999','Action');
+[9:21 PM]
+insert into publishers(publishername,publisheraddress,publisherphone,publisheremail)
+values('High Ground Corps.','Poteau, OK 74953','918-647-9178','cavanalhills@gmail.com'),
+('Separtist','1038 S Hill St, Los Angeles, CA 90015','213-746-4674','themayan@gmail.com'),
+('Temple Times','50 N Temple, Salt Lake City, UT 84150','801-531-1000','templesquare@yahoo.com');
+
+insert into books(groupname,booktitle,publishername,yearpublished,numberpages)
+values ('The Force','I Have The High Ground','High Ground Corps.','1999','480'),
+('CCW','The Queen and The Crone','Separtist','2012','500'),
+('Coffee Writers','The Flash','Temple Times','2015','1000'),
+('Writers of Kern','Children of the Fountain','Separtist','2007','330'),
+('The Force','Attack of the Clones','High Ground Corps.','2002','500'),
+('The Force','Revenge of the Sith','High Ground Corps.','2005','480'),
+('CCW','The Prophet and the Warlock','Separtist','2019','551'),
+('CCW','Mortal Empires','Separtist','2017','630'),
+('Writers of Kern','Blood for the Blood God','Temple Times','2016','254'),
+('Coffee Writers','Realm of the Wood Elves','Temple Times','2016','433');
