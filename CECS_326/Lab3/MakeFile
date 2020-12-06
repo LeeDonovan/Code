@@ -1,0 +1,4 @@
+CC = gcc
+
+make: main.c
+	$(CC) main.c -pthread -o main
