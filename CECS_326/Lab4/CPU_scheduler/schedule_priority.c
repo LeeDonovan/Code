@@ -46,6 +46,9 @@ int max(struct node *head){
         }
         temp = temp->next;
     }
+    if(max == 0){
+        return -1;
+    }
     while(head != NULL){
         if(head->task->priority == max){//match head priority with max 
             run(head->task, head->task->burst);//print head task if matched
