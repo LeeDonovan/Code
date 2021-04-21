@@ -6,5 +6,13 @@
     "python.pythonPath": "E:\\Python\\python.exe",
     "workbench.editorAssociations": [
     
-    ]
+    ],
+    "python.testing.pytestArgs": [
+        "."
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": false,
+    "jupyter.jupyterServerType": "local",
+    "python.testing.promptToConfigure": false
 }

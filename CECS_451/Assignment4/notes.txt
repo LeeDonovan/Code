@@ -1,0 +1,9 @@
+define the cost funciton
+loop over every city and for each city you find the closest airport
+group those cities to the closest airport
+should have 3 groups
+find total distance from city to airport
+
+list of airport and list of city
+loop every city and find closest airport and calc closest city and airport
+gradient distance: use formula to optimize airport location
