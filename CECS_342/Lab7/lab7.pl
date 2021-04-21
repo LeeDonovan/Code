@@ -22,28 +22,35 @@ effective(electric, water).
 ineffective(electric, grass).
 ineffective(electric, electric).
 immune(electric, ground).
+normal(electric, fire).
 
 %water
 effective(water, fire).
 effective(water, ground).
 ineffective(water, water).
 ineffective(water, grass).
+normal(water, electric).
 
 %fire
 effective(fire, grass).
 ineffective(fire, water).
 ineffective(fire, fire).
+normal(fire, ground).
+normal(fire, electric).
 
 %grass
 effective(grass, water).
 effective(grass, ground).
 ineffective(grass, fire).
 ineffective(grass, grass).
+normal(grass, electric).
 
 %ground
 effective(ground, electric).
 effective(ground, fire).
 ineffective(ground, grass).
+normal(ground, ground).
+normal(ground, water).
 
 
 
@@ -73,7 +80,7 @@ descendent(X, Y) :- evolves(Y, Z), descendent(X, Z). % This one is recursive!!
 damageMultiplier(MoveType, TargetType, 2.0) :- effective(MoveType, TargetType).
 damageMultiplier(MoveType, TargetType, 0.5) :- ineffective(MoveType, TargetType).
 damageMultiplier(MoveType, TargetType, 0.0) :- immune(MoveType, TargetType).
-damageMultiplier(MoveType, TargetType, 1.0) :- not(effective(MoveType,TargetType)), not(ineffective(MoveType,TargetType)), not(immune(MoveType,TargetType)).
+damageMultiplier(MoveType, TargetType, 1.0) :- normal(MoveType, TargetType).
 
 
 
