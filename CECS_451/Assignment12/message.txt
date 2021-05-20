@@ -1,0 +1,101 @@
+from numpy.lib.npyio import load
+from sklearn.datasets import load_breast_cancer
+import numpy as np
+from matplotlib import pyplot as plt
+from matplotlib import pyplot as nplt
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+from sklearn import tree
+from sklearn.datasets import load_iris
+from sklearn.svm import SVC
+from sklearn.ensemble import BaggingClassifier
+
+
+cancer = load_breast_cancer()
+
+cancer.feature_names
+
+X_train, X_test, y_train, y_test = train_test_split(cancer.data, cancer.target, test_size = 0.5)
+
+np.shape(cancer.data)
+x = cancer.data.shape
+y = cancer.target.shape
+trainx = X_test.shape
+shapex = X_train.shape
+trainy = y_test.shape
+shapey = y_train.shape
+
+# print("Cancer Data: ", x)
+# print("Cancer Target: ", y)
+# print("Train X: ", trainx)
+# print("Test X: ", shapex)
+# print("Train Y: ", trainy)
+# print("Test Y: ", shapey)
+
+clf = DecisionTreeClassifier(criterion='gini', max_depth=2) 
+treeOG = clf.fit(X_train,y_train)#train algo with training data
+y_pred = treeOG.predict(X_test)
+# print("Y_test: ",y_test)
+# print("Y_pred: ",y_pred)
+
+acc = accuracy_score(y_test, y_pred)
+print("Accuracy: ", acc)
+clf.fit(X_train,y_train)
+
+n_nodes = clf.tree_.node_count
+children_left = clf.tree_.children_left
+children_right = clf.tree_.children_right
+feature = clf.tree_.feature
+threshold = clf.tree_.threshold
+
+node_depth = np.zeros(shape=n_nodes, dtype=np.int64)
+is_leaves = np.zeros(shape=n_nodes, dtype=bool)
+stack = [(0, 0)]  # start with the root node id (0) and its depth (0)
+while len(stack) > 0:
+    # `pop` ensures each node is only visited once
+    node_id, depth = stack.pop()
+    node_depth[node_id] = depth
+
+    # If the left and right child of a node is not the same we have a split
+    # node
+    is_split_node = children_left[node_id] != children_right[node_id]
+    # If a split node, append left and right children and depth to `stack`
+    # so we can loop through them
+    if is_split_node:
+        stack.append((children_left[node_id], depth + 1))
+        stack.append((children_right[node_id], depth + 1))
+    else:
+        is_leaves[node_id] = True
+
+print("The binary tree structure has {n} nodes and has "
+      "the following tree structure:\n".format(n=n_nodes))
+for i in range(n_nodes):
+    if is_leaves[i]:
+        print("{space}node={node} is a leaf node.".format(
+            space=node_depth[i] * "\t", node=i))
+    else:
+        print("{space}node={node} is a split node: "
+              "go to node {left} if X[:, {feature}] <= {threshold} "
+              "else to node {right}.".format(
+                  space=node_depth[i] * "\t",
+                  node=i,
+                  left=children_left[i],
+                  feature=feature[i],
+                  threshold=threshold[i],
+                  right=children_right[i]))
+estimators = []
+scores = []
+
+
+#tree.plot_tree(clf)
+plt.savefig("mygraph.png")
+
+scores = []
+estimators = []
+for i in range(10, 35):
+    clf = BaggingClassifier(n_estimators=i).fit(X_train, y_train)
+    scores.append(clf.score(X_test, y_test))
+    estimators.append(i)
+plt.plot(estimators, scores)
+plt.savefig("mygraph.png")

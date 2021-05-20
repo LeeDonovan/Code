@@ -1,0 +1,45 @@
+San Diego , CA
+Tijuana, Mexico
+Los Angeles, CA 
+Lahaina, HI
+Honolulu, HI
+Papeete, Tahiti
+Pago Pago, Tutuila
+Auckland, New Zealand
+Bay of Islands, New Zealand
+Sydney, Australia
+Brisbane, AU 
+Cairns, AU 
+Cooktown, AU 
+Darwin, AU 
+Komodo, Indonesia
+Celukan Bawang, Bali 
+Benoa, Bali 
+Sandakan, Malaysia
+Puerto Princesa, Philippines
+Manila, Philippines
+Hualien, Taiwan
+Okinawa, Japan
+Osaka, Japan
+Donghae, South Korea
+Vladivostok, Russia 
+Moscow, Russia
+Cairo, Egypt
+Madrid, Spain
+Paris, France
+Calais, France
+Dover, England
+London, England
+Southhampton, England
+New York City, New York 
+Philadelphia, Pennsylvania
+Harrisburg, Pennsylvania
+Pittsburgh, Pennsylvania
+Columbus, Ohio
+Indianapolis, Indiana 
+St. Louis, Missouri 
+Oklahomo City, OK 
+Alburquerque, New Mexico
+Pheonix, AZ 
+Anaheim, CA 
+San Diego, CA 
